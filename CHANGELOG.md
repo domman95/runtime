@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.58.0](https://github.com/BeOnAuto/runtime/compare/v0.57.0...v0.58.0) (2026-11-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **tool-servers:** an operator who runs the server, the image or the auto-runtime command changes nothing. A program that composes the core gives the most one tool call may send: every ToolAccess answers mostRequestBytesTo(server), which makeToolAccess gives from its option mostRequestBytes, 16 MiB unless given; toolBounds.argumentBytes is gone, with requestBytes, stdioRequestBytes and handArgumentBytes in its place; admission of @on.auto/tool-servers/policy takes each call's mostBytes; renderedArguments of @on.auto/definitions/tool-blocks takes the bound as its fourth argument; DocumentReading takes mostRequestBytesTo, and so do the tools of CallPorts, InteractionPorts and LookupPorts. a program that composes the core and implements ToolAccess itself also answers mostRequestBytes, the most one call may send to a server that is not started as a program; makeToolAccess answers it from its option mostRequestBytes, 16 MiB unless given.
+
+### Features
+
+* **definitions:** a kept text is read within its reader's bound, and a workflow passes it whole ([341fcd1](https://github.com/BeOnAuto/runtime/commit/341fcd16659a3c34ccf7cfa5fe19c3b8c2d73d04))
+* **generation:** current image, speech and video models, and OpenAI's speech retires on its day ([9f0f398](https://github.com/BeOnAuto/runtime/commit/9f0f3989e3a8353eba8ab22fc2d3b2be1acc1b2f))
+* **interaction:** a shell keeps a delivered reply only where a request waits for its message ([d70b407](https://github.com/BeOnAuto/runtime/commit/d70b407a2bb53027e1afb43dfa00ac035396ee70))
+* **providers:** an entry may say where its deliveries carry the reply ([d1e0419](https://github.com/BeOnAuto/runtime/commit/d1e04190becf874fece64276c5ab30ace1f3a4ca))
+* **tool-servers:** a tool call sends what TOOL_CALL_MAX_REQUEST_MIB sets, and a run takes 1 MiB ([5e34f05](https://github.com/BeOnAuto/runtime/commit/5e34f05254b9bced0cffd950196f7f4cc0bba7c3))
+* **tool-servers:** an asset passed whole is written into a tool's request a piece at a time ([c8c508e](https://github.com/BeOnAuto/runtime/commit/c8c508ec000253ad4d1b9aa27f418ce58d646ee0))
+
+
+### Bug Fixes
+
+* **api:** an agent asks one round of questions, proposes once, and takes one yes ([f27ad74](https://github.com/BeOnAuto/runtime/commit/f27ad74eb04e5d54e9e9e3177e0cc60bbbc99de0))
+* **api:** the proposal ends with its closing question, and a changed proposal is asked again ([346ff5a](https://github.com/BeOnAuto/runtime/commit/346ff5a67324a49d6f3262d0ccc4d1795ffe80c9))
+* **definitions:** goals read a # written straight before a word as text ([c280ddb](https://github.com/BeOnAuto/runtime/commit/c280ddb54111f625f4f1e95512c55dbe8617633e))
+* **interaction:** a reply taken is told before a later reply is told it was not taken ([d1e0419](https://github.com/BeOnAuto/runtime/commit/d1e04190becf874fece64276c5ab30ace1f3a4ca))
+* **workflow-host:** a start that waits for a later minute wakes the host when it is due ([c280ddb](https://github.com/BeOnAuto/runtime/commit/c280ddb54111f625f4f1e95512c55dbe8617633e))
+
 ## [0.57.0](https://github.com/BeOnAuto/runtime/compare/v0.56.0...v0.57.0) (2026-11-16)
 
 
